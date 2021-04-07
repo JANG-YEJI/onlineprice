@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" />
+
+	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+
+	<link href="/static/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="wrapper">
+		
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<h1> 온라인 쇼핑몰 주요 품목 매출 현황 </h1>
+
+			
+			</nav>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="row mb-2 mb-xl-3">
+						<div class="col-auto d-none d-sm-block">
+							<h3><strong>Analytics</strong> Dashboard</h3>
+						</div>
+
+						
+					</div>
+					<div class="d-flex">
+						
+							
+	
+									<div class="col-sm-2 px-2">
+										<div class="card mb-2">
+											<div class="card-body">
+												<h5 class="card-title mb-2">2020년 총매출액 1위</h5>
+												<h3 class="mt-1 mb-3">{{sales_money["prod_category"][0]}}<br>
+													19.7(조원)
+												</h3>
+												<div class="mb-1">
+													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 32% </span>
+													<span class="text-muted">2019년 대비</span>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<h5 class="card-title mb-2">2020년 추정매출건수 1위</h5>
+												<h3 class="mt-1 mb-3">{{sales_amount["prod_category"][0]}} <br>
+													5.6(억 건)
+												</h3>
+												<div class="mb-1">
+													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 47%  </span>
+													<span class="text-muted">2019년 대비</span>
+												</div>
+											</div>
+										</div>
+									</div>
+										
+						
+						
+
+						<!--line chart start-->
+						
+							<div class = "d-flex col-lg-8 col-xl-10 col-xxl-10">
+								<div class="flex-fill px-2">
+										<div class="card flex-fill">
+											<div class="card-header">
+												<h5 class="card-title m-0">2019년 대비 2020년 물가상승률</h5>
+											</div>
+											<div class="card-body" >
+												<div class="curve_chart"  id="chartjs-dashboard-line">
+												</div>
+											</div>
+										</div>	
+								</div>
+
+								<div class="flex-fill px-2">		
+										<div class="card flex-fill">
+											<div class="card-header">
+												<h5 class="card-title m-0">2019년 대비 2020년 매출액 증가율</h5>
+											</div>
+											<div class="card-body" >
+												<div class="curve_chart"  id="chartjs-dashboard-line1">
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						
+						<!--line chart end-->
+
+					</div>
+
+					<!--Pie chart start-->
+
+					<div class="row px-2">
+						<div class="col-12 col-md-6 col-xxl-5 d-flex order-1">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">2019 추정매출건수(백만 건)</h5>
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="py-3">
+											<div class="chart chart-xs">
+												<canvas id="chartjs-pie"></canvas>
+											</div>
+										</div>
+
+										<table class="table mb-0">
+											<tbody>
+												<tr>
+													<td>2019 TOTAL</td>
+													<td class="text-right">1590</td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-12  col-md-6  col-xxl-5 d-flex order-2">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">2020 추정매출건수(백만 건)</h5>
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="py-3">
+											<div class="chart chart-xs">
+												<canvas id="chartjs-pie1"></canvas>
+											</div>
+										</div>
+
+										<table class="table mb-0">
+											<tbody>
+												<tr>
+													<td>2020 TOTAL</td>
+													<td class="text-right">2176</td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!--Pie chart end-->
+
+
+
+					<div class="row px-4">
+						<div class="col-12 col-lg-4 col-xxl-3 d-flex"></div>
+							<div class="card flex-fill">
+								<div class="card-header">
+									<h3>   2019년 대비 2020년 상반기</h3>
+								</div>
+								<div class="card-body d-flex w-200">
+									<div class="align-self-center chart chart-lg">
+										<canvas id="chartjs-dashboard-bar1"></canvas>
+									</div>
+								</div>
+							</div>
+
+							<div class="card flex-fill">
+								<div class="card-header">
+									<h3>   2019년 대비 2020년 하반기</h3>
+								</div>
+								<div class="card-body d-flex w-200">
+									<div class="align-self-center chart chart-lg">
+										<canvas id="chartjs-dashboard-bar2"></canvas>
+									</div>
+								</div>
+							</div>
+
+							
+
+
+						</div>
+					</div>
+
+					
+
+
+
+					<div class="card flex-fill">
+						<div class="card-header">
+
+							<h5 class="card-title mb-0"> 2019/2020년 온라인 거래액 (단위: 백만원)</h5>
+						</div>
+						<table class="table table-hover my-0">
+							<thead>
+								<tr>
+									<th>{{avg_df.columns[0]}}</th>
+									<th class="d-none d-xl-table-cell ">2019 월간 평균 거래액</th>
+									<th class="d-none d-xl-table-cell">2020 월간 평균 거래액</th>
+									<th>{{avg_df.columns[3]}}</th>
+									
+							</thead>
+							<tbody>
+							
+
+								{% for i in range(avg_df | length) %}
+									<tr>
+										{% if avg_df['상품군별'][i] == '합계' %}
+											<td style = "font-weight: bold">{{avg_df['상품군별'][i]}}</td>
+											<td class="d-none d-xl-table-cell" style = "color:red; font-weight: bold">{{avg_df['2019평균거래액'][i]}}</td>
+											<td class="d-none d-xl-table-cell" style = "color:red; font-weight: bold">{{avg_df['2020평균거래액'][i]}}</td>
+											<td class="d-none d-md-table-cell" style = "font-weight: bold">{{avg_df['증가율'][i]}}</td>
+										{% else %}	
+
+											<td>{{avg_df['상품군별'][i]}}</td>
+
+											{% if avg_df['2019평균거래액'][i] | length >= 9 %}
+												<td class="d-none d-xl-table-cell" style = "color:red">{{avg_df['2019평균거래액'][i]}}</td>
+											{% else %}
+												<td class="d-none d-xl-table-cell">{{avg_df['2019평균거래액'][i]}}</td>
+											{% endif %}		
+
+											{% if avg_df['2020평균거래액'][i] | length >= 9 %}
+												<td class="d-none d-xl-table-cell" style = "color:red">{{avg_df['2020평균거래액'][i]}}</td>
+											{% else %}
+												<td class="d-none d-xl-table-cell">{{avg_df['2020평균거래액'][i]}}</td>
+											{% endif %}	
+										
+											<td class="d-none d-md-table-cell">{{avg_df['증가율'][i]}}</td>
+										{% endif %}	
+
+									
+										
+										
+									</tr>
+								{% endfor %}
+
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+
+
+				</div>
+			</main>
+
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-left">
+							<p class="mb-0">
+								<a href="index.html" class="text-muted"><strong> SemiProject1 </strong></a> &copy;
+							</p>
+						</div>
+						
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script src="/static/js/app.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+	<script src="/static/js/chartjs-plugin-labels.js"></script>
+
+<!--pie chart start -->
+	<script>
+		// Pie chart
+		document.addEventListener("DOMContentLoaded", function() {
+
+			var cate_sales = [];
+			{% for i in sales_amount["prod_category"] %}
+				cate_sales.push('{{i}}')
+			{% endfor %}
+
+			var sales_2019= [] ;
+			{% for i in sales_amount["예상매출건수2019"] %}
+				sales_2019.push('{{i}}')
+			{% endfor %}
+
+
+
+			new Chart(document.getElementById("chartjs-pie"), {
+				type: "pie",
+				data: {
+					labels: cate_sales,
+					datasets: [{
+						data: sales_2019,
+						backgroundColor: [
+							window.theme.primary,
+							window.theme.warning,
+							window.theme.danger,
+							window.theme.secondary,
+							window.theme.success,
+							window.theme.info,
+							"#dee2e6",
+							"#8d36a3"
+
+						],
+						borderColor: "transparent"
+					}]
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					legend: {
+						display: true, 
+						position: 'right'
+					},
+					plugins: {
+						labels:{
+							render: function(d) { 
+								if(d.percentage < 6) {return ' '} 
+								return d.label + "\n (" + d.percentage + "%)" },
+							
+							fontColor: '#000000',
+							fontSize: 14,
+			
+						}
+					}
+					
+				}
+			});
+		});
+	</script>
+	<script>
+		// Pie chart
+		document.addEventListener("DOMContentLoaded", function() {
+
+			var cate_sales = [];
+			{% for i in sales_amount["prod_category"] %}
+				cate_sales.push('{{i}}')
+			{% endfor %}
+
+			var sales_2020= [] ;
+			{% for i in sales_amount["예상매출건수2020"] %}
+				sales_2020.push('{{i}}')
+			{% endfor %}
+
+
+
+			new Chart(document.getElementById("chartjs-pie1"), {
+				type: "pie",
+				data: {
+					labels: cate_sales,
+					datasets: [{
+						data: sales_2020,
+						backgroundColor: [
+							window.theme.primary,
+							window.theme.warning,
+							window.theme.danger,
+							window.theme.secondary,
+							window.theme.success,
+							window.theme.info,
+							"#dee2e6",
+							"#8d36a3"
+						],
+						borderColor: "transparent"
+					}]
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					legend: {
+						display: true, position: 'right'
+					},
+					plugins: {
+						labels:{
+							render: function(d) { 
+								if(d.percentage < 6) {return ' '} 
+								return d.label + "\n (" + d.percentage + "%)" },
+							fontColor: '#000000',
+							fontSize: 14
+						}
+					}
+				}
+			});
+		});
+	</script>
+
+	<!--pie chart end-->
+
+
+	<!-- line chart start -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+		['Month', '온라인 물가상승률', '전체 물가상승률'],
+		['Jan',  -0.3,    1.5],
+		['Feb',  0,      1.1],
+		['Mar',  -0.16,      1],
+		['Apr',  -0.04,      0.1],
+		['May',  -0.08,      -0.3],
+		['Jun',  -0.06,      0],
+		['Jul',  -0.02,      0.3],
+		['Aug',  -0.08,      0.7],
+		['Sep',  -0.1,      1],
+		['Oct',  -0.12,      0.1],
+		['Nov',  -0.1,      0.6],
+		['Dec',  -0.07,     0.5],
+		]);
+
+		var options = {
+		title: '월별 물가 상승률 비교',
+		curveType: 'function',
+		legend: { position: 'bottom' }
+		};
+
+
+
+	var chart = new google.visualization.LineChart(document.getElementById('chartjs-dashboard-line'));
+
+	chart.draw(data, options);
+	}
+
+
+
+	</script>
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+		['분기', '매출액', '민간소비'],
+		['1분기',  0.15,    -6.5],
+		['2분기',  0.14,      1.5],
+		['3분기',  0.18,      0.0],
+		['4분기',  0.18,      -1.5],
+
+		]);
+
+		var options = {
+		title: '매출액, 민간소비 증가율 비교',
+		curveType: 'function',
+		legend: { position: 'bottom' }
+		};
+
+
+
+	var chart = new google.visualization.LineChart(document.getElementById('chartjs-dashboard-line1'));
+
+	chart.draw(data, options);
+	}
+
+
+
+	</script>
+
+	<!-- line chart end -->
+
+
+
+
+	
+	
+
+	<script>
+		var cate_arr = [];
+			{% for label in q_sales['prod_category'] %}
+				var st = '{{label}}'.split(",")
+				cate_arr.push(st)
+			{% endfor %}
+
+		var bar_options_values = 
+			{
+					responsive: true,
+					maintainAspectRatio: false,
+					legend: {
+						display: true,
+						labels: {
+							fontSize: 20
+						},
+						storkeStyel: 'rgba(255,255,255,0)'
+					},
+					plugins: {	
+						labels:{
+							render: function(d) { return d.value },
+							fontColor: function(d) { 
+								if(d.value >= 0){return '#979797'}
+								if(d.value < 0) {return 'rgba(222, 42, 42, 0.6)'} },
+							fontSize: 12
+						}
+					},
+					tooltips:{
+						titleFontSize:20,
+						bodyFontSize: 15,
+					},
+					scales: {
+						yAxes: [{
+							
+							gridLines: {
+								display: true,
+								
+							},
+							stacked: false,
+							ticks: {
+								max: 1.5,
+								min:-0.5,
+								stepSize: 0.5
+							}
+						}],
+						xAxes: [{
+							stacked: false,
+							barPercentage: 1, 
+							categoryPercentage: 0.7,
+							gridLines: {
+								color: "transparent"
+							},
+							ticks:{
+								fontSize:20
+							}
+						}]
+					}
+				}
+
+
+		var bar_dataset_values = [{}]
+				
+	</script>
+	<script>
+		//bar chart
+		document.addEventListener("DOMContentLoaded", function() {
+			
+			var q1_arr = [];
+			{% for item in q_cnt['상반기매출건수증가율'] %}
+				q1_arr.push('{{item}}')
+			{% endfor %}
+
+			var q1_sarr = [];
+			{% for item in q_sales['상반기증가율'] %}
+				q1_sarr.push('{{item}}')
+			{% endfor %}
+
+
+			new Chart(document.getElementById("chartjs-dashboard-bar1"), {	
+				type: "bar",
+				data: { 
+					labels: cate_arr,
+					datasets: [						
+						{
+						label: "추정 매출 건수 증가율",
+						backgroundColor : '#88bb72',
+						hoverBackgroundColor: '#78ab63',
+						data: q1_arr,
+						},
+						{
+						label: "매출 증가율",
+						backgroundColor : '#fde987',
+						hoverBackgroundColor: '#dac767',
+						data: q1_sarr,
+						}		
+				]
+				},
+				options: bar_options_values
+			});
+		});
+	</script>
+
+
+	<script>
+		//bar chart
+		document.addEventListener("DOMContentLoaded", function() {
+			
+			var q2_arr = [];
+			{% for item in q_cnt['하반기매출건수증가율'] %}
+				q2_arr.push('{{item}}')
+			{% endfor %}
+
+			var q2_sarr = [];
+			{% for item in q_sales['하반기증가율'] %}
+				q2_sarr.push('{{item}}')
+			{% endfor %}
+
+
+			new Chart(document.getElementById("chartjs-dashboard-bar2"), {	
+				type: "bar",
+				data: { 
+					labels: cate_arr,
+					datasets: [						
+						{
+						label: "추정 매출 건수 증가율",
+						backgroundColor : '#88bb72',
+						hoverBackgroundColor: '#78ab63',
+						data: q2_arr,
+						},
+						{
+						label: "매출 증가율",
+						backgroundColor : '#fde987',
+						hoverBackgroundColor: '#dac767',
+						data: q2_sarr,
+						}		
+				]
+				},
+				options: bar_options_values
+			});
+		});
+	</script>
+
+	
+		
+
+	
+</body>
+
+</html>
