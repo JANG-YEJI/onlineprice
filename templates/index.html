@@ -223,23 +223,23 @@
 									<tr>
 										{% if avg_df['상품군별'][i] == '합계' %}
 											<td style = "font-weight: bold">{{avg_df['상품군별'][i]}}</td>
-											<td class="d-none d-xl-table-cell" style = "color:red; font-weight: bold">{{avg_df['2019평균거래액'][i]}}</td>
-											<td class="d-none d-xl-table-cell" style = "color:red; font-weight: bold">{{avg_df['2020평균거래액'][i]}}</td>
+											<td class="d-none d-xl-table-cell" style = "color:red; font-weight: bold">{{avg_df['평균거래액2019'][i]}}</td>
+											<td class="d-none d-xl-table-cell" style = "color:red; font-weight: bold">{{avg_df['평균거래액2020'][i]}}</td>
 											<td class="d-none d-md-table-cell" style = "font-weight: bold">{{avg_df['증가율'][i]}}</td>
 										{% else %}	
 
 											<td>{{avg_df['상품군별'][i]}}</td>
 
-											{% if avg_df['2019평균거래액'][i] | length >= 9 %}
-												<td class="d-none d-xl-table-cell" style = "color:red">{{avg_df['2019평균거래액'][i]}}</td>
+											{% if avg_df['평균거래액2019'][i] | length >= 9 %}
+												<td class="d-none d-xl-table-cell" style = "color:red">{{avg_df['평균거래액2019'][i]}}</td>
 											{% else %}
-												<td class="d-none d-xl-table-cell">{{avg_df['2019평균거래액'][i]}}</td>
+												<td class="d-none d-xl-table-cell">{{avg_df['평균거래액2019'][i]}}</td>
 											{% endif %}		
 
-											{% if avg_df['2020평균거래액'][i] | length >= 9 %}
-												<td class="d-none d-xl-table-cell" style = "color:red">{{avg_df['2020평균거래액'][i]}}</td>
+											{% if avg_df['평균거래액2020'][i] | length >= 9 %}
+												<td class="d-none d-xl-table-cell" style = "color:red">{{avg_df['평균거래액2020'][i]}}</td>
 											{% else %}
-												<td class="d-none d-xl-table-cell">{{avg_df['2020평균거래액'][i]}}</td>
+												<td class="d-none d-xl-table-cell">{{avg_df['평균거래액2020'][i]}}</td>
 											{% endif %}	
 										
 											<td class="d-none d-md-table-cell">{{avg_df['증가율'][i]}}</td>
